@@ -7,4 +7,4 @@ int is_zero(int grid[3][3]);
 void shamble(int grid[3][3]);
 static void pprint_grid(int grid[3][3]);
 
-#endif //SANDPILE_H
+#endif
