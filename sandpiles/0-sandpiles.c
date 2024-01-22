@@ -3,15 +3,15 @@
 #include "sandpiles.h"
 
 /**
- * print_grid - Print 3x3 grid
+ * pprint_grid - Print 3x3 grid
  * @grid: 3x3 grid
  *
  */
-static void print_grid(int grid[3][3])
+static void pprint_grid(int grid[3][3])
 {
-    int i, j;
+int i, j;
 
-    for (i = 0; i < 3; i++)
+for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 3; j++)
         {
@@ -55,7 +55,10 @@ int is_stable(int grid[3][3]) {
   return 0; // no issue
 }
 
-
+/**
+ * shamble - Modify the grid
+ * @grid: 3x3 grid
+ */
 void shamble(int grid[3][3]) {
     int gridtmp[3][3] = {
     {0, 0, 0},
@@ -125,7 +128,7 @@ int sandpiles_sum(int grid1[3][3], int grid2[3][3])
         return 0;
     while(is_stable(grid1) == 1) {
         printf("=\n");
-        print_grid(grid1);
+        pprint_grid(grid1);
         shamble(grid1);
     }
     return 0;
