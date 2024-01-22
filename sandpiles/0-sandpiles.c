@@ -7,7 +7,7 @@
  * @grid: 3x3 grid
  *
  */
-static void pprint_grid(int grid[3][3])
+void pprint_grid(int grid[3][3])
 {
 	int i, j;
 
