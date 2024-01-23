@@ -31,13 +31,11 @@ int slide_line(int *line, size_t size, int direction)
 	for (int i = 0; i <= (int)size - 1; i++) {
 		if (cleanline[i] != 0 && cleanline[i] == cleanline[i + 1]) {
 			linetmp[x] = cleanline[i] * 2;
-			printf("tmp: %d\n", linetmp[x]);
 			x++;
 			i++;
 		} 
 		else if (cleanline[i] != 0 && cleanline[i] != cleanline[i + 1]) {
 			linetmp[x] = cleanline[i];
-			printf("tmp: %d\n", linetmp[x]);
 			x++;
 		}
 
