@@ -49,14 +49,6 @@ int slide_line(int *line, size_t size, int direction)
 	// 		printf("%d\n", linetmp[k]);
 	// 	}
 	// }
-	/* count zero at the end */
-	int c = 0;
-	for (int z = (int)size - 1; z > 0; z--) {
-		if (linetmp[z] != 0) {
-			break;
-		}
-		c++;
-	}
 
 	if (direction == 0) { /* Left */
 		for (int i = 0; i <= (int)size; i++) {
@@ -65,16 +57,11 @@ int slide_line(int *line, size_t size, int direction)
 		}
 
 	} else { /* Right */
-		for (int k = (int)size-1; k >= 0; k--) {
-		    if (c < 1)
-		      line[k] = linetmp[k];
-		    if (c > 1)
-			    line[k+1] = linetmp[k];
+		int g = 0;
+		for (int k = (int)size - 1; k >= 0; k--) {
+			line[g] = linetmp[k];
+			g++;
 			printf("%d\n", linetmp[k]);
-		}
-		if (c > 0) {
-			for (int l = 0; l < c; l++)
-				line[l] = 0;
 		}
 	}
 	return 1;
