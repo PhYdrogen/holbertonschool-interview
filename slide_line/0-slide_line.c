@@ -48,7 +48,8 @@ int slide_line(int *line, size_t size, int direction)
 			for (int k = 0; k <= (int)size - 1; k++) {
 				line[k+1] = linetmp[k];
 			}
-			line[0] = 0;
+			if (linetmp[size] == 0)
+				line[0] = 0;
 			return 1;
 		}
 		int g = 0;
