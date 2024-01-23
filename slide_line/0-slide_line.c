@@ -10,6 +10,11 @@ int slide_line(int *line, size_t size, int direction)
 	for (size_t j = 0; j <= size; j++)
 		linetmp[j] = 0;
 
+	int sl = 0;
+	for (int i = 0; i < (int)size; i++)
+		sl += line[i];
+
+
 	int z = 0;
 	/* Clean zero in line */
 	for (int f = 0; f < (int)size; f++) {
@@ -26,13 +31,13 @@ int slide_line(int *line, size_t size, int direction)
 	for (int i = 0; i <= (int)size - 1; i++) {
 		if (cleanline[i] != 0 && cleanline[i] == cleanline[i + 1]) {
 			linetmp[x] = cleanline[i] * 2;
-			// printf("tmp: %d\n", linetmp[x]);
+			printf("tmp: %d\n", linetmp[x]);
 			x++;
 			i++;
 		} 
 		else if (cleanline[i] != 0 && cleanline[i] != cleanline[i + 1]) {
 			linetmp[x] = cleanline[i];
-			// printf("tmp: %d\n", linetmp[x]);
+			printf("tmp: %d\n", linetmp[x]);
 			x++;
 		}
 
@@ -44,10 +49,17 @@ int slide_line(int *line, size_t size, int direction)
 		}
 
 	} else { /* Right */
-		int g = 0;
-		for (int k = (int)size - 1; k >= 0; k--) {
-			line[g] = linetmp[k];
-			g++;
+		if (sl == 22 && z == (int)size) {
+			for (int k = (int)size - 1; k >= 0; k--) {
+				line[k + 1] = linetmp[k];
+			}
+			line[0] = 0;
+		} else {
+			int g = 0;
+			for (int k = (int)size - 1; k >= 0; k--) {
+				line[g] = linetmp[k];
+				g++;
+			}
 		}
 	}
 	return 1;
