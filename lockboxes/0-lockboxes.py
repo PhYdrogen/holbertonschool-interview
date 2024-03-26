@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """Function to check if all boxes in a list can be opened."""
 
 
@@ -16,7 +15,7 @@ def canUnlockAll(boxes: list[list[int]]) -> bool:
     for elem in a:
         # loop over the array the existing box
         for x in boxes[elem]:
-            # each key of box 
+            # each key of box
             if x not in a and x != 0:
                 # x not 0 and not already in box
                 a.append(x)
