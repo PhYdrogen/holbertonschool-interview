@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """Function to check if all boxes in a list can be opened."""
 
 
