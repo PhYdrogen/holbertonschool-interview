@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Island Perimeter
-"""
+""" Island Perimeter """
 
 
 def island_perimeter(grid: list[list[int]]):
