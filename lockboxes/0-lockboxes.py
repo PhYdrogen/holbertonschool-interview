@@ -1,23 +1,18 @@
 #!/usr/bin/python3
-""" Lockboxes module """
+"""
+Lockboxes
+"""
 
 
-def canUnlockAll(boxes):
-    if not boxes or not isinstance(boxes, list):
-        return False
+def canUnlockAll(boxes: list[list[int]]) -> bool:
+    array = []
 
-    n = len(boxes)
-    if n == 0:
-        return False
+    for init in boxes[0]:
+        array.append(init)
 
-    opened = {0}
-    keys = set(boxes[0])
+    for elem in array:
+        for keys in boxes[elem]:
+            if keys not in array and keys != 0:
+                array.append(keys)
 
-    while keys:
-        current_key = keys.pop()
-
-        if 0 <= current_key < n and current_key not in opened:
-            opened.add(current_key)
-            keys.update(set(boxes[current_key]))
-
-    return len(opened) == n
+    return 1 + len(array) == len(boxes)
