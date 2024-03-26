@@ -5,7 +5,6 @@ Lockboxes
 
 
 def canUnlockAll(boxes: list[list[int]]) -> bool:
-    """ Open all the boxes """
     a = []
 
     for e in boxes[0]:
