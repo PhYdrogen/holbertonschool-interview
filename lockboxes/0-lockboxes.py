@@ -1,5 +1,12 @@
 #!/usr/bin/python3
+"""
+Function to check if all boxes in a list can be opened.
+
+:param boxes: List of lists where inner lists represent keys and outer list represents boxes.
+:return: True if all boxes can be opened, False otherwise.
+"""
 def canUnlockAll(boxes: list[list[int]]):
+    """ Open all the boxes """
     a = []
     for e in boxes[0]:
         a.append(e)
@@ -11,11 +18,3 @@ def canUnlockAll(boxes: list[list[int]]):
     return 1 + len(a) == len(boxes)
 
 
-# boxes = [[1], [2], [3], [4], []]
-# print(canUnlockAll(boxes)) # True
-
-# boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
-# print(canUnlockAll(boxes)) # True
-
-# boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-# print(canUnlockAll(boxes)) # False
