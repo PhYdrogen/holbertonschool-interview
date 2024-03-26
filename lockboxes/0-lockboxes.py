@@ -2,26 +2,18 @@
 """
 Lockboxes
 """
-from collections import deque
 
 
-def canUnlockAll(boxes):
-    """ Lockboxes """
-    if not boxes:
-        return False
+def canUnlockAll(boxes: list[list[int]]) -> bool:
+    """ Open all the boxes """
+    a = []
 
-    n = len(boxes)
-    visited = set()
-    visited.add(0)
-    queue = deque([0])
+    for e in boxes[0]:
+        a.append(e)
 
-    while queue:
-        current_box = queue.popleft()
-        keys = boxes[current_box]
+    for elem in a:
+        for x in boxes[elem]:
+            if x not in a and x != 0:
+                a.append(x)
 
-        for key in keys:
-            if key < n and key not in visited:
-                visited.add(key)
-                queue.append(key)
-
-    return len(visited) == n
+    return 1 + len(a) == len(boxes)
