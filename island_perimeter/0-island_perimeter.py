@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-""" 
-This function calculates the perimeter of an island described by a
-grid of 0s and 1s, where 0 represents water and 1 represents land.
-"""
+""" This function calculates the perimeter of an island described by a grid of 0s and 1s, where 0 represents water and 1 represents land. """
 
 
 def island_perimeter(grid: list[list[int]]):
