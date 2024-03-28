@@ -15,9 +15,19 @@ def canUnlockAll(boxes):
 
     for elem in array:
         try:
+            if len(boxes[elem]) == 0:
+                k = k - 1
             for keys in boxes[elem]:
                 if keys not in array and keys != 0:
                     array.append(keys)
         except IndexError:
             continue
-    return k + len(array) == len(boxes)
+
+    array.sort()
+    if not (k + len(array) == len(boxes)):
+        last = 0
+        for chiffre in range(array[0], len(boxes)):
+            if last + 1 != chiffre:
+                return False
+            last = chiffre
+        return True
