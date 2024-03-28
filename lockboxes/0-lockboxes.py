@@ -31,3 +31,5 @@ def canUnlockAll(boxes):
                 return False
             last = chiffre
         return True
+    else:
+        return True
