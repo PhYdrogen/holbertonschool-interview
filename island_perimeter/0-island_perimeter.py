@@ -25,6 +25,6 @@ def island_perimeter(grid):
             MAXx = obj['x'] 
         if obj['y'] > MAXy:
             MAXy = obj['y']
-    print(MAXx, MINx, MAXy, MINy)
+    # print(MAXx, MINx, MAXy, MINy)
 
     return 2*((MAXx - (MINx - 1)) + (MAXy - (MINy - 1)))
