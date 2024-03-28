@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-""" This function calculates the perimeter of an island described by a grid of 0s and 1s, where 0 represents water and 1 represents land. """
-
+"""
+Check the surrounding cells of a cell
+"""
 
 def island_perimeter(grid: list[list[int]]):
-    """ Calculate perimeter """
+    """ Calculate the perimeter of an island """
     array = []
     for x, row in enumerate(grid):
         for y, elem in enumerate(row):
