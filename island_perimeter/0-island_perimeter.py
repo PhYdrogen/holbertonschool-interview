@@ -3,6 +3,7 @@
 Check the surrounding cells of a cell
 """
 
+
 def island_perimeter(grid: list[list[int]]):
     """ Calculate the perimeter of an island """
     array = []
