@@ -4,7 +4,7 @@ Check the surrounding cells of a cell
 """
 
 
-def island_perimeter(grid: list[list[int]]):
+def island_perimeter(grid):
     """ Calculate the perimeter of an island """
     array = []
     for x, row in enumerate(grid):
