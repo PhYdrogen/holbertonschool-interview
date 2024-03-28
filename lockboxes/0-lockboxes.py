@@ -14,7 +14,6 @@ def canUnlockAll(boxes):
         array.append(init)
 
     for elem in array:
-        # print(elem)
         try:
             for keys in boxes[elem]:
                 if keys not in array and keys != 0:
@@ -26,12 +25,10 @@ def canUnlockAll(boxes):
     # print(array, "\nk:",k, len(array), len(boxes))
     if not (k + len(array) == len(boxes)):
         for i, chiffre in enumerate(array):
+            chiffre = chiffre - 1
+            # print(f"i: {i}, chiffre: {chiffre}")
             if i != chiffre:
                 return False
         return True
     else:
         return True
-
-
-# boxes = [[4, 6], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-# print(canUnlockAll(boxes))
