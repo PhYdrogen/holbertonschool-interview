@@ -11,7 +11,8 @@ def canUnlockAll(boxes):
     k = 0 if len(boxes) == 1 else 1
 
     for init in boxes[0]:
-        array.append(init)
+        if init not in array:
+            array.append(init)
 
     for elem in array:
         try:
