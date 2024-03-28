@@ -4,7 +4,8 @@ Lockboxes
 """
 
 
-def canUnlockAll(boxes: list[list[int]]) -> bool:
+def canUnlockAll(boxes):
+    """ can it unlock all ? """
     array = []
 
     for init in boxes[0]:
