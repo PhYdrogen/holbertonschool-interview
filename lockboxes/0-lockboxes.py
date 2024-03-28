@@ -23,11 +23,9 @@ def canUnlockAll(boxes):
             continue
 
     array.sort()
-    # print(array, "\nk:",k, len(array), len(boxes))
     if not (k + len(array) == len(boxes)):
         for i, chiffre in enumerate(array):
             chiffre = chiffre - 1
-            # print(f"i: {i}, chiffre: {chiffre}")
             if i != chiffre:
                 return False
         return True
