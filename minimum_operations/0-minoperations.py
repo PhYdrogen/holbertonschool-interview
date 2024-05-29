@@ -4,9 +4,16 @@ Min Operations
 """
 
 def minOperations(n):
-    if n % 2 == 1:
-        return n
-    else:
-        copy = n // 2
-        paste = n - copy
-        return copy + paste
+    if n <= 1:
+        return 0
+
+    op = 0
+    d = 2
+
+    while op <= n:
+        while n % op == 0:
+            op += d
+            n //= d
+        d += 1
+
+    return op
