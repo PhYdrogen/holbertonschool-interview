@@ -11,6 +11,9 @@ int is_palindrome(listint_t **head)
     int array[1024];
     listint_t *current;
     int cp = 0;
+    int j = 0;
+    int k;
+    int i;
 
     while (head != NULL)
     {
@@ -23,10 +26,11 @@ int is_palindrome(listint_t **head)
         }
         head = &current->next;
     }
-    int j = 0;
-    int k = cp % 2;
 
-    for (int i = cp - 1; i > 0; i--)
+    k = cp % 2;
+    i = cp - 1;
+
+    for (; i > 0; i--)
     {
         if (k == 1 && i == cp / 2)
         {
