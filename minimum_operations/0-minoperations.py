@@ -11,7 +11,7 @@ def minOperations(n):
     d = 2
 
     while op <= n:
-        while n % op == 0:
+        while n % d == 0:
             op += d
             n //= d
         d += 1
