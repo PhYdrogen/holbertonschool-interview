@@ -5,22 +5,40 @@ File for functions to validate UTF-8 encoding
 
 
 def validUTF8(data) -> bool:
-    def check(num):
-            mask = 10000000
-            i = 0
-            while num & mask:  # 11000110 & 100000
-                mask >>= 1
-                i += 1
-            return i
+    if len(data) == 0:
+        return True
 
-    for i in range(len(data)):
-        j = check(data[i])
-        k = i + j - (j != 0)
-        i += 1
-        if j == 1 or j > 4 or k >= len(data):
+    if data[0] < 128:
+        for i in data:
+            if i > 127:
+                return False
+        return True
+
+    f = data[0]
+    f = bin(f)[2:]
+    try:
+        f = f.split('0')[0]
+    except IndexError:
+        return False
+    ok(data)
+    print(data[0])
+    if f.count('1') - 1 < 1 or f.count('1') > 4:
+        return False
+    for i in range(f.count('1') - 1):
+        try:
+            d = bin(data[i+1])[2:]
+        except IndexError:
             return False
-        while i < len(data) and i <= k:
-            current = check(data[i])
-            if current != 1: return False
-            i += 1
+        d = d.zfill(8)
+        print(d, i)
+        try:
+            if d.index('10') != 0 and i == f.count('1'):
+                return False
+        except ValueError:
+            return False
     return True
+
+
+def ok(data):
+    for i in data:
+        print(bin(i), end=" ")
