@@ -20,8 +20,8 @@ def validUTF8(data) -> bool:
         f = f.split('0')[0]
     except IndexError:
         return False
-    ok(data)
-    print(data[0])
+    # ok(data)
+    # print(data[0])
     if f.count('1') - 1 < 1 or f.count('1') > 4:
         return False
     for i in range(f.count('1') - 1):
@@ -30,7 +30,7 @@ def validUTF8(data) -> bool:
         except IndexError:
             return False
         d = d.zfill(8)
-        print(d, i)
+        # print(d, i)
         try:
             if d.index('10') != 0 and i == f.count('1'):
                 return False
