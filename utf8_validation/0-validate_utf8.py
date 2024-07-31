@@ -5,6 +5,9 @@ File for functions to validate UTF-8 encoding
 
 
 def validUTF8(data) -> bool:
+    if len(data) == 0:
+        return True
+    
     if data[0] < 128:
         for i in data:
             if i > 127:
@@ -20,7 +23,10 @@ def validUTF8(data) -> bool:
     # ok(data)
     # print(data[0])
     for i in range(f.count('1') - 1):
-        d = bin(data[i+1])[2:]
+        try:
+            d = bin(data[i+1])[2:]
+        except IndexError:
+            return False
         d = d.zfill(8)
         # print(d)
         try:
@@ -30,6 +36,7 @@ def validUTF8(data) -> bool:
             return False
     return True
 
+
 def ok(data):
     for i in data:
-        print(bin(i),end=" ")
+        print(bin(i), end=" ")
