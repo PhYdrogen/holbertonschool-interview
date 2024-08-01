@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+File for functions to calculate rain
+"""
+
+
 def rain(walls):
     if not walls:
         return 0
