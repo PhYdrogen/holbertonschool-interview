@@ -59,10 +59,10 @@ void countSort(int *array, size_t size, int exp)
  */
 void radix_sort(int *array, size_t size)
 {
-    if (size == 1)
-    {
-        return;
-    }
+	if (size == 1)
+	{
+		return;
+	}
 	int max = getMax(array, size);
 	int exp;
 
