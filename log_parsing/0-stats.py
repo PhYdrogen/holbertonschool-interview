@@ -7,6 +7,7 @@ incoming request
 import sys
 import signal
 
+
 def print_result(d: dict[str, int], filesize: int):
     print(f"File size: {filesize}")
     array_keys: [str] = []
@@ -16,9 +17,11 @@ def print_result(d: dict[str, int], filesize: int):
     for keys in array_keys:
         print(f"{keys}:{d[keys]}")
 
+
 def denied(signalNo, stack):
     print_result(d, fileSize)
     sys.exit(0)
+
 
 if __name__ == '__main__':
     fileSize: int = 0
@@ -43,4 +46,3 @@ if __name__ == '__main__':
         nbLine += 1
         if nbLine % 10 == 0:
             print_result(d, fileSize)
-
