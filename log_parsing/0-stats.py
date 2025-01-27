@@ -36,6 +36,8 @@ if __name__ == '__main__':
     for line in sys.stdin:
         if re.search("^\d+\.\d+\.\d+\.\d+ - \[.+] \"GET /projects/260 HTTP/1\.1\" \d+ \d+$", line) is None:
             continue
+        if line == "":
+            continue
         inputSplit = line.split(" ")
         n = inputSplit.pop()[:-2]
         fileSize += int(n)
