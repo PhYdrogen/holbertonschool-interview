@@ -23,7 +23,6 @@ def denied(_signalno, _stack):
     print_result(d, fileSize)
     sys.exit(0)
 
-
 if __name__ == '__main__':
     fileSize: int = 0
     status: str = ""
@@ -34,7 +33,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, denied)
 
     for line in sys.stdin:
-        if re.search("^\d+\.\d+\.\d+\.\d+ - \[.+] \"GET /projects/260 HTTP/1\.1\" \d+ \d+$", line) is None:
+        if re.search("^\d+\.\d+\.\d+\.\d+ - \[.+\] \"GET \/projects\/260 HTTP\/1\.1\" \d+ \d+$", line) is None:
             continue
         if line == "":
             continue
@@ -51,3 +50,5 @@ if __name__ == '__main__':
         nbLine += 1
         if nbLine % 10 == 0:
             print_result(d, fileSize)
+    if nbLine < 10:
+        print_result(d, fileSize)
