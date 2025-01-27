@@ -6,19 +6,20 @@ incoming request
 """
 import sys
 import signal
+import re
 
 
-def print_result(d: dict[str, int], filesize: int):
+def print_result(dictstatus: dict[str, int], filesize: int):
     print(f"File size: {filesize}")
     array_keys: [str] = []
-    for k in d.keys():
+    for k in dictstatus.keys():
         array_keys.append(k)
     array_keys.sort()
     for keys in array_keys:
-        print(f"{keys}:{d[keys]}")
+        print(f"{keys}:{dictstatus[keys]}")
 
 
-def denied(signalNo, stack):
+def denied(_signalno, _stack):
     print_result(d, fileSize)
     sys.exit(0)
 
@@ -33,6 +34,8 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, denied)
 
     for line in sys.stdin:
+        if re.search("^\d+\.\d+\.\d+\.\d+ - \[.+] \"GET /projects/260 HTTP/1\.1\" \d+ \d+$", line) is None:
+            continue
         inputSplit = line.split(" ")
         n = inputSplit.pop()[:-2]
         fileSize += int(n)
