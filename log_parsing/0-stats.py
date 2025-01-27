@@ -1,14 +1,18 @@
 #!/usr/bin/python3
 import sys
 
+"""
+this file will be combined with generator
+to make a resumed of incoming request
+"""
+
 fileSize: int = 0
 status: str = ""
 d: dict[str, int] = {}
-nbLine = 0
+nbLine: int = 0
 
 for line in sys.stdin:
     inputSplit = line.split(" ")
-    # print(f"debug: {inputSplit}")
     fileSize += int(inputSplit.pop()[:-2])
     status = inputSplit.pop()
     value = d.get(status)
