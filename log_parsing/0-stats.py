@@ -5,12 +5,29 @@ generator to make a resumed of
 incoming request
 """
 import sys
+import signal
+
+def print_result(d: dict[str, int], filesize: int):
+    print(f"File size: {filesize}")
+    array_keys: [str] = []
+    for k in d.keys():
+        array_keys.append(k)
+    array_keys.sort()
+    for keys in array_keys:
+        print(f"{keys}:{d[keys]}")
+
+def denied(signalNo, stack):
+    print_result(d, fileSize)
+    sys.exit(0)
 
 if __name__ == '__main__':
     fileSize: int = 0
     status: str = ""
     d: dict[str, int] = {}
     nbLine: int = 0
+
+    signal.signal(signal.SIGTERM, denied)
+    signal.signal(signal.SIGINT, denied)
 
     for line in sys.stdin:
         inputSplit = line.split(" ")
@@ -24,12 +41,6 @@ if __name__ == '__main__':
             d[status] = 1
 
         nbLine += 1
-
         if nbLine % 10 == 0:
-            print(f"File size: {fileSize}")
-            arrayKeys: [str] = []
-            for k in d.keys():
-                arrayKeys.append(k)
-            arrayKeys.sort()
-            for keys in arrayKeys:
-                print(f"{keys}:{d[keys]}")
+            print_result(d, fileSize)
+
