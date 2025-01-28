@@ -52,5 +52,4 @@ if __name__ == '__main__':
         nbLine += 1
         if nbLine % 10 == 0:
             print_result(d, fileSize)
-    if nbLine < 10:
-        print_result(d, fileSize)
+    print_result(d, fileSize)
