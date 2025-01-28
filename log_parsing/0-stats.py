@@ -38,8 +38,10 @@ if __name__ == '__main__':
         if line == "":
             continue
         inputSplit = line.split(" ")
-        n = inputSplit.pop()[:-2]
-        fileSize += int(n)
+        n: str = inputSplit.pop()
+        if '\n' not in n:
+            continue
+        fileSize += int(n.replace('\n', ""))
         status = inputSplit.pop()
         value = d.get(status)
         if value:
