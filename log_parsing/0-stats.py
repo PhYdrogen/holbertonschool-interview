@@ -33,7 +33,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, denied)
 
     for line in sys.stdin:
-        if re.search('^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+] "GET /projects/260 HTTP/1\.1" \d{3} \d{1,3}$', line) is None:
+        if re.search('^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET \/projects\/260 HTTP\/1\.1" \d{3} \d{1,3}$', line) is None:
             continue
         if line == "":
             continue
