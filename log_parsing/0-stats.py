@@ -33,7 +33,8 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, denied)
 
     for line in sys.stdin:
-        if re.search("^\d+\.\d+\.\d+\.\d+ - \[.+\] \"GET \/projects\/260 HTTP\/1\.1\" \d+ \d+$", line) is None:
+        "2025-01-28 09:42:37.729465"
+        if re.search("^\d+\.\d+\.\d+\.\d+ - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] \"GET \/projects\/260 HTTP\/1\.1\" \d+ \d+$", line) is None:
             continue
         if line == "":
             continue
