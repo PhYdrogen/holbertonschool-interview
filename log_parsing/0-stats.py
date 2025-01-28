@@ -16,7 +16,7 @@ def print_result(dictstatus: dict[str, int], filesize: int):
         array_keys.append(k)
     array_keys.sort()
     for keys in array_keys:
-        print(f"{keys}:{dictstatus[keys]}")
+        print(f"{keys}: {dictstatus[keys]}")
 
 
 def denied(_signalno, _stack):
