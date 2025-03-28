@@ -2,7 +2,7 @@
 """
 N Queens puzzle solver
 The N queens puzzle is the challenge of placing N non-attacking queens on
-an N×N chessboard
+an NxN chessboard
 """
 
 import sys
