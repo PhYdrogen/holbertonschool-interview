@@ -28,7 +28,8 @@ int isFilled(int x, int y, int size)
  *
  * Description: Prints a Menger sponge of the specified level.
  *              If level is lower than 0, the function does nothing.
- *              The sponge is printed using '#' for filled cells and ' ' for empty cells.
+ *              The sponge is printed using '#' for filled cells and
+ *              ' ' for empty cells.
  */
 void menger(int level)
 {
