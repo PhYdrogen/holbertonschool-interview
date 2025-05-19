@@ -3,8 +3,8 @@
 This module contains a function to count keywords in the titles of
 hot articles from a given Reddit subreddit.
 """
-import requests
 from collections import Counter
+import requests
 
 
 def count_words(subreddit, word_list, after=None,
